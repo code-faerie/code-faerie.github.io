@@ -1,0 +1,28 @@
+services:
+  jekyll-container:
+    image: jekyll-github-pages
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - "UID=${UID}"
+        - "GID=${GID}"
+        - "JEKYLL_VERSION=${JEKYLL_VERSION}"
+    restart: "no"
+    command: exit 0
+  jekyll-new:
+    image: jekyll-github-pages
+    volumes:
+      - .:/usr/src/app
+    command: >
+      sh -c "jekyll new --force --skip-bundle . &&\
+      sed -i '/# gem \"github-pages\", group: :jekyll_plugins/c\gem \"github-pages\", \"~> ${GITHUB_PAGES_VERSION}\", group: :jekyll_plugins' ./Gemfile &&\
+      bundle install"
+  jekyll-watch:
+    image: jekyll-github-pages
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "4000:4000"
+    command: >
+      sh -c "bundle exec jekyll serve --host 0.0.0.0 --watch"
