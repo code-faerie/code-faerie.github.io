@@ -4,3 +4,4 @@ _site
 vendor
 .env
 Gemfile.lock
+node_modules
