@@ -23,6 +23,12 @@ services:
       - .:/usr/src/app
     command: >
       sh -c "bundle install"
+  npm-install:
+    image: jekyll-github-pages
+    volumes:
+      - .:/usr/src/app
+    command: >
+      sh -c "npm install"
   jekyll-watch:
     image: jekyll-github-pages
     volumes:

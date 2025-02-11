@@ -10,14 +10,19 @@ ENV LANG=C.UTF-8 \
     LC_ALL=C.UTF-8 \
     DEBIAN_FRONTEND=noninteractive
 
+# Update package list
+RUN apt update --fix-missing 
+
 # Install essential build tools and dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt install -y \
     build-essential \
     git \
     curl \
+    nodejs \
+    npm \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Bundler and Jekyll dependencies
+# Install Bundler and Jekyll gems
 RUN gem update bundler &&\ 
     gem install bundler &&\
     gem install jekyll -v "${JEKYLL_VERSION}"
