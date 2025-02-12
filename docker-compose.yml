@@ -1,39 +1,58 @@
 services:
-  jekyll-container:
+  image:
     image: jekyll-github-pages
     build:
       context: .
       dockerfile: Dockerfile
       args:
-        - "UID=${UID}"
-        - "GID=${GID}"
-        - "JEKYLL_VERSION=${JEKYLL_VERSION}"
+        - "UID=1000"
+        - "GID=1000"
+        - "JEKYLL_VERSION=3.10.0"
     restart: "no"
     command: exit 0
-  jekyll-new:
+  shell:
     image: jekyll-github-pages
+    environment:
+      - JEKYLL_ENV=development
+      - NODE_ENV=development
     volumes:
       - .:/usr/src/app
-    command: >
-      sh -c "jekyll new --force --skip-bundle . &&\
-      sed -i '/# gem \"github-pages\", group: :jekyll_plugins/c\gem \"github-pages\", \"~> ${GITHUB_PAGES_VERSION}\", group: :jekyll_plugins' ./Gemfile"
-  bundle-install:
+    stdin_open: true
+    tty: true
+    restart: "no"
+    command: /bin/bash
+  watch:
     image: jekyll-github-pages
-    volumes:
-      - .:/usr/src/app
-    command: >
-      sh -c "bundle install"
-  npm-install:
-    image: jekyll-github-pages
-    volumes:
-      - .:/usr/src/app
-    command: >
-      sh -c "npm install"
-  jekyll-watch:
-    image: jekyll-github-pages
+    environment:
+      - JEKYLL_ENV=development
+      - NODE_ENV=development
     volumes:
       - .:/usr/src/app
     ports:
       - "4000:4000"
     command: >
-      sh -c "bundle exec jekyll serve --host 0.0.0.0 --watch"
+      sh -c "npx nf start jekyll-watch,tailwind-watch,typescript-watch"
+  build:
+    image: jekyll-github-pages
+    environment:
+      - JEKYLL_ENV=production
+      - NODE_ENV=production
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "4000:4000"
+    command: >
+      sh -c "npx nf run typescript-build &&\
+      npx nf run tailwind-build &&\
+      npx nf run jekyll-build"
+  serve:
+    image: jekyll-github-pages
+    environment:
+      - JEKYLL_ENV=production
+      - NODE_ENV=production
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "4000:4000"
+    command: >
+      sh -c "npx nf start jekyll-serve"
