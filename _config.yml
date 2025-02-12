@@ -7,16 +7,13 @@ url: "https://awildfaerie.com" # the base hostname & protocol for your site, e.g
 
 # Build settings
 theme: null
-source: ./src/site
-destination: ./_site
 markdown: kramdown
 plugins:
   - jekyll-feed
 
 # Exclude from processing.
 exclude:
-  - src/css/
-  - src/js/
+  - src/
   - node_modules/
   - vendor/bundle/
   - vendor/cache/
