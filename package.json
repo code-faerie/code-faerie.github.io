@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.6",
+    "foreman": "^3.0.1",
+    "tailwindcss": "^4.0.6",
+    "typescript": "^5.7.3"
+  }
+}

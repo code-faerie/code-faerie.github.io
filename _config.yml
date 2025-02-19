@@ -1,0 +1,35 @@
+title: awildfaerie.com
+email: wild-faerie@proton.me
+description: >- # this means to ignore newlines until "baseurl:"
+  My personal blog.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://awildfaerie.com" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+theme: null
+markdown: kramdown
+plugins:
+  - jekyll-feed
+
+# Exclude from processing.
+exclude:
+  - src/
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - CNAME
+  - Dockerfile
+  - container.env
+  - development.env
+  - production.env
+  - docker-compose.yml
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - package-lock.json
+  - tailwind.config.js
+  - tsconfig.json
+  - Procfile
