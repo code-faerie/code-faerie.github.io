@@ -590,14 +590,8 @@
   .table {
     display: table;
   }
-  .h-auto {
-    height: auto;
-  }
   .w-6 {
     width: calc(var(--spacing) * 6);
-  }
-  .w-\[30px\] {
-    width: 30px;
   }
   .w-full {
     width: 100%;
@@ -746,19 +740,14 @@
       text-transform: uppercase;
     }
   }
-  .dark\:bg-blue-800 {
-    @media (prefers-color-scheme: dark) {
-      background-color: var(--color-blue-800);
-    }
-  }
 }
-#nav-Checkbox:checked ~ ul.nav-Menu li, #nav-Checkbox:checked ~ label#nav-Toggle #svg-close {
+#nav-checkbox:checked ~ ul.nav-menu li, #nav-checkbox:checked ~ label#nav-toggle #svg-close {
   display: block;
 }
-#nav-Checkbox:checked ~ label#nav-Toggle #svg-menu {
+#nav-checkbox:checked ~ label#nav-toggle #svg-menu {
   display: none;
 }
-#nav-Checkbox:checked ~ ul.nav-Menu {
+#nav-checkbox:checked ~ ul#nav-menu {
   padding-bottom: calc(var(--spacing) * 4);
 }
 @keyframes spin {
