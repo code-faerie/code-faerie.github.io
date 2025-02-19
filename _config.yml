@@ -30,6 +30,5 @@ exclude:
   - Gemfile.lock
   - package.json
   - package-lock.json
-  - tailwind.config.js
   - tsconfig.json
   - Procfile
