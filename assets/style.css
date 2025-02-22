@@ -741,7 +741,7 @@
     }
   }
 }
-#nav-checkbox:checked ~ ul.nav-menu li, #nav-checkbox:checked ~ label#nav-toggle #svg-close {
+#nav-checkbox:checked ~ ul#nav-menu li, #nav-checkbox:checked ~ label#nav-toggle #svg-close {
   display: block;
 }
 #nav-checkbox:checked ~ label#nav-toggle #svg-menu {

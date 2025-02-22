@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-#nav-checkbox:checked ~ ul.nav-menu li,
+#nav-checkbox:checked ~ ul#nav-menu li,
 #nav-checkbox:checked ~ label#nav-toggle #svg-close {
 	@apply block;
 }
