@@ -1,13 +1,13 @@
 @import 'tailwindcss';
 
-#nav-checkbox:checked ~ ul#nav-menu li,
-#nav-checkbox:checked ~ label#nav-toggle #svg-close {
+header input[type="checkbox"]:checked ~ ul li,
+header input[type="checkbox"]:checked ~ label svg#close-icon {
 	@apply block;
 }
-#nav-checkbox:checked ~ label#nav-toggle #svg-menu {
+header input[type="checkbox"]:checked ~ label svg#menu-icon {
 	@apply hidden;
 }
-#nav-checkbox:checked ~ ul#nav-menu {
+header input[type="checkbox"]:checked ~ ul {
 	@apply pb-4;
 }
 

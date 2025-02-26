@@ -638,12 +638,6 @@
   .bg-black {
     background-color: var(--color-black);
   }
-  .bg-green-300 {
-    background-color: var(--color-green-300);
-  }
-  .bg-sky-300 {
-    background-color: var(--color-sky-300);
-  }
   .bg-white {
     background-color: var(--color-white);
   }
@@ -655,12 +649,6 @@
   }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
-  }
-  .py-5 {
-    padding-block: calc(var(--spacing) * 5);
-  }
-  .py-40 {
-    padding-block: calc(var(--spacing) * 40);
   }
   .pr-3 {
     padding-right: calc(var(--spacing) * 3);
@@ -822,13 +810,13 @@
     }
   }
 }
-#nav-checkbox:checked ~ ul#nav-menu li, #nav-checkbox:checked ~ label#nav-toggle #svg-close {
+header input[type="checkbox"]:checked ~ ul li, header input[type="checkbox"]:checked ~ label svg#close-icon {
   display: block;
 }
-#nav-checkbox:checked ~ label#nav-toggle #svg-menu {
+header input[type="checkbox"]:checked ~ label svg#menu-icon {
   display: none;
 }
-#nav-checkbox:checked ~ ul#nav-menu {
+header input[type="checkbox"]:checked ~ ul {
   padding-bottom: calc(var(--spacing) * 4);
 }
 p {
