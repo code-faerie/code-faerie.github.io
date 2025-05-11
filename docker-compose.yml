@@ -42,7 +42,7 @@ services:
     ports:
       - "4000:4000"
     command: >
-      sh -c "npx nf start jekyll-watch,tailwind-watch,typescript-watch"
+      sh -c "npx nf start jekyll-watch,tailwind-watch"
   build:
     image: jekyll-github-pages
     environment:
@@ -53,8 +53,7 @@ services:
     ports:
       - "4000:4000"
     command: >
-      sh -c "npx nf run typescript-build &&\
-      npx nf run tailwind-build &&\
+      sh -c "npx nf run tailwind-build &&\
       npx nf run jekyll-build"
   serve:
     image: jekyll-github-pages
