@@ -10,7 +10,7 @@ services:
         - "JEKYLL_VERSION=3.10.0"
     restart: "no"
     command: exit 0
-  shell:
+  bundle:
     image: jekyll-github-pages
     environment:
       - JEKYLL_ENV=development
@@ -20,7 +20,18 @@ services:
     stdin_open: true
     tty: true
     restart: "no"
-    command: /bin/bash
+    entrypoint: [ 'bundle' ]
+  npm:
+    image: jekyll-github-pages
+    environment:
+      - JEKYLL_ENV=development
+      - NODE_ENV=development
+    volumes:
+      - .:/usr/src/app
+    stdin_open: true
+    tty: true
+    restart: "no"
+    entrypoint: [ 'npm' ]
   watch:
     image: jekyll-github-pages
     environment:
